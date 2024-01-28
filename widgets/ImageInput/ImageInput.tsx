@@ -8,7 +8,7 @@ import styles from "./ImageInput.module.scss";
 import "./extra.scss";
 
 type ImageInputParams = {
-  onStartRecreating: (imageSrc: string) => void;
+  onStartRecreating: () => void;
 };
 
 const ImageInput = ({ onStartRecreating }: ImageInputParams) => {
@@ -107,7 +107,7 @@ const ImageInput = ({ onStartRecreating }: ImageInputParams) => {
           />
           <Button
             onClick={() => {
-              onStartRecreating(imageSrc as string);
+              onStartRecreating();
             }}
             icon={<CheckOutlined />}
           >
