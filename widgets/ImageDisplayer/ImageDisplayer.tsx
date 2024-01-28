@@ -76,7 +76,7 @@ const ImageDisplayer = ({ HandleChangeMode }: ImageDisplayerProps) => {
       {displayerMode == null && <Spin size="large" />}
       {displayerMode == DisplayerMode.EmptyNoImage && (
         <>
-          <p>You dont have any images uploading</p>
+          <p>You dont have any images</p>
           <Button onClick={HandleChangeMode}>Go to image uploader</Button>
         </>
       )}
