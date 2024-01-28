@@ -32,6 +32,10 @@ const ImageInput = ({ onStartRecreating }: ImageInputParams) => {
 
   const props: UploadProps = {
     name: "file",
+    action: "https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188",
+    beforeUpload: (file) => {
+      return file;
+    },
     onChange(info) {
       if (info.file.status === "done") {
         const blob = info.file.originFileObj as Blob;
