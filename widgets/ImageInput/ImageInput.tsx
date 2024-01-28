@@ -62,6 +62,7 @@ const ImageInput = ({ onStartRecreating }: ImageInputParams) => {
         message.success(`File uploaded successfully`);
 
         setImageSrc(imageSrc);
+        localStorage.removeItem("displayerPixels");
         localStorage.setItem("image", imageSrc);
       } else {
         const canvas = document.createElement("canvas");
@@ -92,7 +93,7 @@ const ImageInput = ({ onStartRecreating }: ImageInputParams) => {
 
   return (
     <>
-      <h2 className={styles.header}>Upload your 32 x 32 image here</h2>
+      <h3 className={styles.header}>Upload your 32 x 32 image here</h3>
       <Upload {...props} maxCount={1}>
         <Button icon={<UploadOutlined />}>Click to Upload</Button>
       </Upload>

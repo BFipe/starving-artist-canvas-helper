@@ -1,0 +1,14 @@
+.pixelViewer {
+    width: 100%;
+    overflow: auto;
+}
+
+.pixelContainer {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+    width: 990px;
+    overflow-x: auto;
+}

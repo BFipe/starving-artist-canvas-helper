@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useState } from "react";
-import ImageInput from "../../widgets/ImageInput/ImageInput";
 import { LoginOutlined } from "@ant-design/icons";
 import { Button, Spin } from "antd";
 import styles from "./ImageRecreator.module.scss";
+import ImageInput from "@/widgets/ImageInput/ImageInput";
+import ImageDisplayer from "@/widgets/ImageDisplayer/ImageDisplayer";
 
 enum Mode {
   Uploading,
@@ -17,18 +18,14 @@ const ImageRecreator = () => {
   useLayoutEffect(() => {
     const lsMode = localStorage.getItem("mode");
 
-    console.log(lsMode);
-
     if (lsMode !== null) {
       setMode(Number(lsMode) as Mode);
-      console.log(lsMode);
     } else {
       setMode(Mode.Uploading);
     }
   }, []);
 
   useEffect(() => {
-    console.log("I recieved mode", mode);
     if (mode != null) {
       localStorage.setItem("mode", mode.toString());
     }
@@ -40,6 +37,10 @@ const ImageRecreator = () => {
 
   const HandleSwitchMode = () => {
     setMode(mode == Mode.Recreating ? Mode.Uploading : Mode.Recreating);
+  };
+
+  const HandleChangeToUpload = () => {
+    setMode(Mode.Uploading);
   };
 
   return (
@@ -56,14 +57,15 @@ const ImageRecreator = () => {
 
       {mode == Mode.Uploading && (
         <>
-          <h1>Uploading mode</h1>
+          <h2>Uploading mode</h2>
           <ImageInput onStartRecreating={HandleImageRecreation} />
         </>
       )}
 
       {mode == Mode.Recreating && (
         <>
-          <h1>Recreating mode</h1>
+          <h2>Recreating mode</h2>
+          <ImageDisplayer HandleChangeMode={HandleChangeToUpload} />
         </>
       )}
     </>
