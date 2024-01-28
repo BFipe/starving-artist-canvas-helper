@@ -1,6 +1,6 @@
 "use client";
 
-import ImageInput from "../ImageInput/ImageInput";
+import ImageInput from "../../widgets/ImageInput/ImageInput";
 
 const ImageRecreator = () => {
   const HandleImageRecreation = (imgSrc: string) => {
