@@ -6,7 +6,7 @@ import { AntdRegistry } from "@ant-design/nextjs-registry";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Canvas Helper v1.0.0",
+  title: "Canvas Helper v1.0.1",
 };
 
 export default function RootLayout({

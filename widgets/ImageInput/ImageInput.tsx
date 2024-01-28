@@ -32,9 +32,8 @@ const ImageInput = ({ onStartRecreating }: ImageInputParams) => {
 
   const props: UploadProps = {
     name: "file",
-    action: "https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188",
-    beforeUpload: (file) => {
-      return file;
+    customRequest(options) {
+      options.onSuccess!(options.file);
     },
     onChange(info) {
       if (info.file.status === "done") {
@@ -82,6 +81,7 @@ const ImageInput = ({ onStartRecreating }: ImageInputParams) => {
         message.success("Image was sized down to 32 by 32");
 
         setImageSrc(centeredImageSrc);
+        localStorage.removeItem("displayerPixels");
         localStorage.setItem("image", centeredImageSrc);
       }
     };
@@ -97,7 +97,9 @@ const ImageInput = ({ onStartRecreating }: ImageInputParams) => {
 
   return (
     <>
-      <h3 className={styles.header}>Upload your 32 x 32 image here</h3>
+      <h3 className={styles.header}>
+        Upload your 32 x 32 image here (supported formats: png, jpg, jpeg)
+      </h3>
       <Upload {...props} maxCount={1}>
         <Button icon={<UploadOutlined />}>Click to Upload</Button>
       </Upload>
