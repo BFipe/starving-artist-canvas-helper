@@ -8,6 +8,7 @@ const ImageRecreator = dynamic(
 export default function Home() {
   return (
     <main className={styles.main}>
+      <h1>Canvas Helper v1.0.0 by BFipe</h1>
       <ImageRecreator />
     </main>
   );
