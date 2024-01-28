@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import processImage from "@/scripts/ImageProcessor";
 import styles from "./ImageDisplayer.module.scss";
 import ImagePixel from "../Pixel/ImagePixel";
+import clipboardCopy from "clipboard-copy";
 
 enum DisplayerMode {
   EmptyNoImage,
@@ -59,11 +60,15 @@ const ImageDisplayer = ({ HandleChangeMode }: ImageDisplayerProps) => {
   const HandlePixelClick = (id: number) => {
     console.log("Clicked pixel", id);
 
+    const newPixelState = !pixels![id].isUsed;
+
     setPixels((prevPixels) => {
       const updatedPixels = [...prevPixels!];
-      updatedPixels[id].isUsed = !updatedPixels[id].isUsed;
+      updatedPixels[id].isUsed = newPixelState;
       return updatedPixels;
     });
+
+    clipboardCopy(pixels![id].hex);
   };
 
   return (
