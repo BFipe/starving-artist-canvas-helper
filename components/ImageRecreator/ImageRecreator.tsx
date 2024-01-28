@@ -65,7 +65,10 @@ const ImageRecreator = () => {
       {mode == Mode.Recreating && (
         <>
           <h2>Recreating mode</h2>
-          <span>Click on the pixel to copy its hex value!</span>
+          <p>
+            To use it convert the image and then click on the pixel to copy its
+            hex value!
+          </p>
           <ImageDisplayer HandleChangeMode={HandleChangeToUpload} />
         </>
       )}

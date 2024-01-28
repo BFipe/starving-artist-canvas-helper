@@ -83,9 +83,11 @@ const ImageDisplayer = ({ HandleChangeMode }: ImageDisplayerProps) => {
       {displayerMode == DisplayerMode.EmptyImage && (
         <>
           <p>
-            You have uploaded image! Click button to start recreating image.
+            <b>Click on this button to convert the image!</b>
           </p>
-          <Button onClick={HandleProcessImage}>Convert image</Button>
+          <Button onClick={HandleProcessImage}>
+            <b>Convert image</b>
+          </Button>
         </>
       )}
       {displayerMode == DisplayerMode.Pixels && pixels && (
